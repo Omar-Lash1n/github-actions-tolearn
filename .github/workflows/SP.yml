@@ -5,14 +5,14 @@ on:
         - main
 jobs:
     omar_job:
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: list files
               run: echo "Hello Omar, this is my first workflow"
 
     job2:
         needs: omar_job
-        runs-on: ubuntu-latest
+        runs-on: self-hosted
         steps:
             - name: list files2
               run: echo "Hello Omar, this is my second workflow"
