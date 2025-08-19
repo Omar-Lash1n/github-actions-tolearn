@@ -9,4 +9,12 @@ jobs:
         steps:
             - name: list files
               run: echo "Hello Omar, this is my first workflow"
+
+    job2:
+        needs: omar_job
+        runs-on: ubuntu-latest
+        steps:
+            - name: list files2
+              run: echo "Hello Omar, this is my second workflow"
+           
             
