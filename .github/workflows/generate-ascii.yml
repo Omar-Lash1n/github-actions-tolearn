@@ -14,8 +14,8 @@ jobs:
               - name: test file Exists
                 run: grep -i "dragon" dragon.txt
 
-              - name: install cowsay program
-                run: sudo apt-get install cowsay -y
+              - name: Read file
+                run: cat dragon.txt
 
               - name: checkout repo files
                 run: ls
