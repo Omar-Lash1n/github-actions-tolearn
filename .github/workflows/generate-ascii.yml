@@ -5,5 +5,9 @@ jobs:
     Ascii_job:
         runs-on: ubuntu-latest
         steps:
+              - name: Checkout repository
+                uses: actions/checkout@v5
+
               - name: install cowsay program
-                run: D:\Bank Misr DevOps Internship\github-actions-tolearn\script.sh
+                run: |
+                  bash script.sh
