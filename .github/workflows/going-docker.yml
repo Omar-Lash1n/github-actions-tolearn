@@ -1,15 +1,18 @@
 name: Going Docker
 on: push
+
 jobs:
-    docker:
-        runs-on: ubuntu-latest
-        steps:
-            - name: docker login
-              run: echo docker login --username=${{ vars.DOCKER_USER }} --password=${{ secrets.DOCKER_PASSWORD }}
-            - name: docker build 
-              run: echo docker build -t mynginxx/${{ vars.DOCKER_USER }}/nginx:latest .
-            - name: docker publish
-              run: docker push mynginxx/${{ vars.DOCKER_USER }}/nginx:latest
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-            
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ vars.DOCKER_USER }}" --password-stdin
 
+      - name: Build Docker image
+        run: docker build -t ${{ vars.DOCKER_USER }}/nginx:latest .
+
+      - name: Push Docker image
+        run: docker push ${{ vars.DOCKER_USER }}/nginx:latest
