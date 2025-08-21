@@ -9,4 +9,4 @@ jobs:
                 uses: actions/checkout@v5
               - name: install cowsay program
                 run: |
-                  bash script.sh
+                  wsl bash script.sh
