@@ -9,4 +9,4 @@ jobs:
                 uses: actions/checkout@v5
               - name: install cowsay program
                 run: |
-                  script.sh
+                  D:\Bank Misr DevOps Internship\github-actions-tolearn\script.sh
